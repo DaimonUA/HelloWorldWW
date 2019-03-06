@@ -21,13 +21,27 @@ namespace ConsoleApp2
                     Int32.TryParse(str,out n);
             }
 
-            byte[] arr;
-            ConsoleKeyInfo curr; 
+            byte[] arr = new byte[n];
+            ConsoleKeyInfo curr;
+            byte i0;
 
             for (int i = 0; i < n; i++)
             {
-                curr = Console.ReadKey();
-                byte.TryParse(curr.KeyChar.ToString(),out );
+                do
+                {
+                    i0 = 2;
+                    curr = Console.ReadKey();
+                    str = curr.KeyChar.ToString();
+                    if (str == "q") return;
+                    if (byte.TryParse(curr.KeyChar.ToString(), out i0) & (i0 == 0) | (i0 == 1))
+                    {
+                        break;
+                    }
+                    else
+                        i0 = 2;
+                } while (i0 == 2);
+
+                arr.SetValue(i0, i);
             }
 
         }
